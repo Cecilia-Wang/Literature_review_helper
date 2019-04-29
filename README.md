@@ -1,7 +1,7 @@
 # Literature Review Helper v1.02
 
 ## Introduction
-The script was build under macOS system with Python 3.7.3
+The script was build under macOS system with Python 3.7.3 . \n
 The tool can convert a pubmed (https://www.ncbi.nlm.nih.gov/pubmed/) downloaded txt file, a list of journal articles (with abstracts) into a csv spreadsheet.
 
 
@@ -9,7 +9,9 @@ The tool can convert a pubmed (https://www.ncbi.nlm.nih.gov/pubmed/) downloaded 
 
 To use the tool, you will need to install a couple things
 1. **Python3**
-2. Python **modules and itertools, csv, datetime**
+2. Python modules: **itertools, csv, datetime**
+  For Macs: to install modules, open a terminal window and type 'pip3 <module_name>'.
+    e.g. pip3 csv
 
 ## How to use
 
