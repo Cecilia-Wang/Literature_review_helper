@@ -23,4 +23,7 @@ To use the tool, you will need to install a couple things
 8. Enter the names of input text file you downloaded and a name of the output.
 9. Good luck on your literature review.
 
+Note:
+* Output is csv format so won't support or save any excel formating settings. To enable those, save as a excel file.
+* To enable the link to be clickable, select the link and then move cursor to formular bar, click anywhere to activate and then enter. Don't change any text. If excel is up to date, the link should automatically turn blue.
 
