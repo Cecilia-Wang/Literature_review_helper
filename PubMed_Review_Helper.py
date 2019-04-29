@@ -20,7 +20,8 @@ def line_counter(file): #file need to be the list of files and \n inside each ty
 
 
 currentYear = datetime.now().year
-
+now = datetime.now()
+curtime = now.strftime('%Y-%m-%d_%H:%M:%S')
 data = []
 new_data = []
 
@@ -57,7 +58,7 @@ line_counter(data) # numberings system build for extraction of literature info e
 output = input('Please enter file name for the output: ')
 with open('./'+output+'.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, dialect='excel')
-    header=['No', 'Title', 'Authors', 'Year', 'Abstract','doi', 'SearchInGoogleScholar', 'Notes']
+    header=['FileCreated_'+curtime, 'Title', 'Authors', 'Year', 'Abstract','doi', 'SearchInGoogleScholar', 'Notes']
     writer.writerow(header)
 
 with open('./'+output+'.csv', 'a', newline='')as csvfile:
@@ -92,9 +93,10 @@ with open('./'+output+'.csv', 'a', newline='')as csvfile:
             Ite = iter(data[i])
 
             # reset info to avoid error in doi
-            doi = 'Not Found'
+            doi = 'Unable to process, please search the title with the google scholar link'
             pub_yr = 'Not Found'
             No = data[i][0]
+            link = 'https://scholar.google.co.nz/'
             for n in range(200):
 
                 t = next(Ite,'NA')
@@ -109,6 +111,7 @@ with open('./'+output+'.csv', 'a', newline='')as csvfile:
                     # print('doi: '+doi)
                 elif t in [str(y) for y in range(1960,currentYear+1)]:
                     pub_yr = t
+
 
             writer.writerow([No, title, authors, pub_yr, ab, doi,link, ''])
 
