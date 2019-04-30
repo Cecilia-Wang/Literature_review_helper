@@ -11,6 +11,7 @@ The tool can convert a pubmed (https://www.ncbi.nlm.nih.gov/pubmed/) downloaded 
 To use the tool, you will need to install a couple things
 1. **Python3**
 2. Python modules: **itertools, csv, datetime**
+  
   For Macs: to install modules, open a terminal window and type 'pip3 <module_name>'.
   
     e.g. pip3 csv
