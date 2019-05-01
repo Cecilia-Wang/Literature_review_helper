@@ -1,4 +1,4 @@
-# Literature Review Helper v1.02
+# Literature Review Helper v1.20
 
 ## Introduction
 The script was build under macOS system with Python 3.7.3.
