@@ -26,6 +26,9 @@ data = []
 new_data = []
 
 file_name = input("Please input the file name: ")
+while bool(file_name) ==False:
+    file_name = input('File name can not be empty, please enter again: ')
+
 
 with open("./"+file_name+'.txt', "r") as lf: # open the txt file
     for key, group in itertools.groupby(lf, group_separator): # process context based on empty line(s)
@@ -55,7 +58,13 @@ line_counter(data) # numberings system build for extraction of literature info e
 # now, how to extract all sorts of info, most important, title, url, abstract, authors and year of publication.
 # also think about if possible to add some kind of citation info. Maybe not now. Do this in version 2
 
-output = input('Please enter file name for the output: ')
+output = input('Please enter a name for the output: ')
+while bool(output) ==False:
+    output = input('File name can not be empty, please enter again: ')
+
+
+
+
 with open('./'+output+'.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, dialect='excel')
     header=['FileCreated_'+curtime, 'Title', 'Authors', 'Year', 'Abstract','doi', 'SearchInGoogleScholar', 'Notes']
@@ -93,10 +102,12 @@ with open('./'+output+'.csv', 'a', newline='')as csvfile:
             Ite = iter(data[i])
 
             # reset info to avoid error in doi
-            doi = 'Unable to process, please search the title with the google scholar link'
-            pub_yr = 'Not Found'
+            doi = 'Information Not Found'
+            pub_yr = 'Information Not Found'
             No = data[i][0]
-            link = 'https://scholar.google.co.nz/'
+
+            keywords = '+'.join(data[i + 1])
+            link = 'http://scholar.google.co.nz/scholar?hl=en&as_sdt=1%2C5&q={}&btnG='.format(keywords)
             for n in range(200):
 
                 t = next(Ite,'NA')
@@ -107,7 +118,6 @@ with open('./'+output+'.csv', 'a', newline='')as csvfile:
                     break
                 elif t == 'doi:':
                     doi = 'doi:'+next(Ite)[:-1]
-                    link = 'http://scholar.google.co.nz/scholar?hl=en&as_sdt=1%2C5&q={}&btnG='.format(doi)
                     # print('doi: '+doi)
                 elif t in [str(y) for y in range(1960,currentYear+1)]:
                     pub_yr = t
