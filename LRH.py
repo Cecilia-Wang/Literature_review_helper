@@ -42,7 +42,7 @@ with open("./"+file_name+'.txt', "r") as lf: # open the txt file
 # remove unwanted \n
 
 for i in data:
-    l = ''.join(i.splitlines())
+    l = ' '.join(i.splitlines())
     new_data.append(l)
 
 
